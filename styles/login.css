@@ -1,0 +1,116 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assests/Netflix-website_large.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+header img {
+  width: 250px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+main form {
+  background-color: rgba(0, 0, 0, 0.71);
+  border-radius: 4px;
+  padding: 50px;
+  height: 600px;
+  width: 450px;
+}
+main form h2 {
+  padding-bottom: 20px;
+  font-size: 34px;
+}
+main form .form-control {
+  width: 100%;
+  margin-bottom: 20px;
+  height: 45px;
+  background-color: #333333;
+  border: none;
+  border-radius: 4px;
+}
+main form input::-moz-placeholder {
+  padding-left: 10px;
+}
+main form input::placeholder {
+  padding-left: 10px;
+}
+main form input[type=email], main form input[type=password] {
+  color: #fff;
+  font-size: 18px;
+  padding-left: 10px;
+}
+main form button {
+  width: 100%;
+  height: 45px;
+  margin-top: 40px;
+  background-color: #E50914;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+main form .form-check {
+  color: #737373;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+main form .footer-form {
+  margin-top: 80px;
+  color: #747575;
+}
+main form .footer-form p {
+  margin-bottom: 10px;
+}
+main form .footer-form p span {
+  color: #fff;
+  font-size: 16px;
+}
+
+footer {
+  background-color: rgba(13, 13, 13, 0.568627451);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+  color: #636262;
+  font-size: 20px;
+  padding: 30px 50px;
+}
+footer div p {
+  margin-left: 60px;
+}
+footer div p:hover {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: underline;
+}
+footer .bottom-menu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+footer .bottom-menu li {
+  list-style-type: none;
+  padding-bottom: 15px;
+}
+footer .bottom-menu li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff;
+}/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./assests/Netflix-icon.png" />
+
+    <link rel="stylesheet" href="./styles/login.css" />
+    <title>Netflix</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="./assests/Netflix-logo.png" alt="logo" />
+      </div>
+    </header>
+    <main>
+      <form>
+        <h2>Sign In</h2>
+        <div class="mb-3">
+          <label for="email" class="form-label"></label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Email or phone number"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label"></label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-danger"
+          onclick="login(); return false;"
+        >
+          Sign In
+        </button>
+        <div class="mb-3 form-check">
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label" for="exampleCheck1"
+              >Remember me</label
+            >
+          </div>
+          <p>Need help?</p>
+        </div>
+        <div class="footer-form">
+          <p>New to Netflix? <span>Sign up now.</span></p>
+          <p>
+            This page is protected by Google reCAPTCHA to ensure you're not a
+            bot. <a href="#">Learn more.</a>
+          </p>
+          <q>TIPS: email: abc@mail.com ; password: 12345 </q>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <div>
+        <p>Questions? Contact us.</p>
+      </div>
+      <div class="bottom-menu">
+        <ul>
+          <li>FAQ</li>
+          <li>Terms of Use</li>
+          <li>Ad Choices</li>
+        </ul>
+        <ul>
+          <li>Cancel Membership</li>
+          <li>Privacy</li>
+        </ul>
+        <ul>
+          <li>Help Center</li>
+          <li>Cookie Preferences</li>
+        </ul>
+        <ul>
+          <li>Netflix Shop</li>
+          <li>Impressum</li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="./JS/login.js"></script>
+  </body>
+</html>
