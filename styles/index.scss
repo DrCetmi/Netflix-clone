@@ -3,3 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+#movieData {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    object-fit: cover;
+    .movies-box{
+        width: 310px;
+        background-color: aqua;
+        height: 560px;
+        padding: 10px;
+        img{
+            width: 290px;
+            height: 460px;
+            object-fit: cover;
+        }
+    }
+}

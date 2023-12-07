@@ -2,4 +2,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+#movieData {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#movieData .movies-box {
+  width: 310px;
+  background-color: aqua;
+  height: 560px;
+  padding: 10px;
+}
+#movieData .movies-box img {
+  width: 290px;
+  height: 460px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=index.css.map */
