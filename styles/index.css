@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -20,6 +21,43 @@
   padding: 10px;
 }
 #movieData .movies-box img {
+  width: 290px;
+  height: 460px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#movieData .movies-box h4 {
+  text-align: center;
+  padding-top: 5px;
+}
+
+#top-image {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.3463760504) 0%, rgb(41, 39, 39) 46%, rgb(36, 31, 31) 63%, rgb(167, 165, 165) 100%);
+  padding: 20px;
+}
+#top-image img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 700px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+#movies {
+  display: flex;
+  overflow-x: auto; /* Yatay kaydırma için */
+  white-space: nowrap; /* Uzun satırları bir arada tutmak için */
+}
+#movies .movies-box {
+  width: 310px;
+  background-color: #000;
+  height: 560px;
+  padding: 10px;
+}
+#movies .movies-box img {
   width: 290px;
   height: 460px;
   -o-object-fit: cover;
