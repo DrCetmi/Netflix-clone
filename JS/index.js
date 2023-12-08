@@ -85,6 +85,9 @@ async function searchMoviesData() {
                 movieImage.alt = `${movie.Title} Poster`;
 
                 movieImage.addEventListener('click', () => {
+                    const myModal = new bootstrap.Modal(document.getElementById("myModal"));
+                      myModal.show();
+                      
                     movieImage.style.cursor = "pointer";
                     displayMovieDetailsModal(movie.Title);
                 });
