@@ -143,10 +143,9 @@ async function displayMovieDetailsModal(title) {
         modalHeader.appendChild(modalTitle);
         modalHeader.appendChild(closeButton);
 
-        // Create modal body
         const modalBody = document.createElement('div');
         modalBody.className = 'modal-body';
-        modalBody.innerHTML= `
+        modalBody.innerHTML = `
         <div class="modal-year">
         <p>Year: ${movieDetails.Year}<p/>
         <p>Genre: ${movieDetails.Genre}<p/>
@@ -159,6 +158,67 @@ async function displayMovieDetailsModal(title) {
         <p>Language: ${movieDetails.Language}<p/>
         <p>Runtime: ${movieDetails.Runtime}<p/>
         `;
+
+        // Yorumlar bölümü
+        const commentsSection = document.createElement('div');
+        commentsSection.className = 'comments-section';
+
+        // Yorum ekleme alanı
+        const commentInput = document.createElement('textarea');
+        commentInput.placeholder = 'Yorumunuzu ekleyin...';
+
+        // Yorum ekleme butonu
+        const addCommentBtn = document.createElement('button');
+        addCommentBtn.type = 'button';
+        addCommentBtn.className = 'btn btn-danger';
+        addCommentBtn.textContent = 'Yorum Ekle';
+        addCommentBtn.addEventListener('click', () => {
+            // Burada yorum eklemek için gerekli işlemleri yapabilirsiniz.
+        });
+
+        // Yorumları gösterme alanı
+        const commentsDisplay = document.createElement('div');
+        commentsDisplay.className = 'comments-display';
+
+        // Likes & Dislikes bölümü
+        const likesDislikesSection = document.createElement('div');
+        likesDislikesSection.className = 'likes-dislikes-section';
+
+        // Beğenme butonu
+        const likeBtn = document.createElement('button');
+        likeBtn.type = 'button';
+        likeBtn.className = 'btn btn-success';
+        likeBtn.textContent = "Like";
+        likeBtn.addEventListener('click', () => {
+            // Burada beğeni işlemlerini yapabilirsiniz.
+        });
+
+        // Beğenmeme butonu
+        const dislikeBtn = document.createElement('button');
+        dislikeBtn.type = 'button';
+        dislikeBtn.className = 'btn btn-danger';
+        dislikeBtn.textContent = "Dislike";
+        dislikeBtn.addEventListener('click', () => {
+            // Burada beğenmeme işlemlerini yapabilirsiniz.
+        });
+
+        // Beğeni sayısı gösterme alanı
+        const likesDisplay = document.createElement('span');
+        likesDisplay.textContent = '0 likes';
+
+        // Dislike sayısı gösterme alanı
+        const dislikesDisplay = document.createElement('span');
+        dislikesDisplay.textContent = '0 dislikes';
+
+        // Beğeni ve dislike sayılarını güncelleme fonksiyonu
+        const updateLikesDislikesCount = () => {
+            likesDisplay.textContent = `${likes} likes`;
+            dislikesDisplay.textContent = `${dislikes} dislikes`;
+        };
+
+        // Likes ve Dislikes sayılarını tutmak için değişkenler
+        let likes = 0;
+        let dislikes = 0;
 
         const modalFooter = document.createElement('div');
         modalFooter.className = 'modal-footer';
@@ -174,13 +234,35 @@ async function displayMovieDetailsModal(title) {
         saveChangesBtn.className = 'btn btn-primary';
         saveChangesBtn.textContent = 'Save changes';
 
-        modalFooter.appendChild(closeBtn);
-        modalFooter.appendChild(saveChangesBtn);
+
+
+        // Append elements to likesDislikesSection
+        likesDislikesSection.appendChild(likeBtn);
+        likesDislikesSection.appendChild(dislikeBtn);
+        likesDislikesSection.appendChild(likesDisplay);
+        likesDislikesSection.appendChild(dislikesDisplay);
+
+        // Append elements to commentsSection
+        commentsSection.appendChild(commentInput);
+        commentsSection.appendChild(addCommentBtn);
+        commentsSection.appendChild(commentsDisplay);
+
+        // Append header, body, and footer to content
         modalContent.appendChild(modalHeader);
         modalContent.appendChild(modalBody);
+        modalContent.appendChild(likesDislikesSection);
+        modalContent.appendChild(commentsSection);
         modalContent.appendChild(modalFooter);
+        modalFooter.appendChild(closeBtn);
+        modalFooter.appendChild(saveChangesBtn);
+
+        // Append content to dialog
         modalDialog.appendChild(modalContent);
+
+        // Append dialog to container
         modalContainer.appendChild(modalDialog);
+
+        // Append modal container to the body
         document.body.appendChild(modalContainer);
 
         const myModal = new bootstrap.Modal(modalContainer);
@@ -190,10 +272,5 @@ async function displayMovieDetailsModal(title) {
     }
 }
 
-
-function closeModal() {
-    const modal = document.querySelector('.modal-content');
-    document.body.removeChild(modal);
-}
 
 searchMoviesData();
