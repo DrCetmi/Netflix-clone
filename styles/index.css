@@ -62,4 +62,24 @@
   height: 460px;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
+}
+
+.collapse {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-body img {
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 10px;
+}
+.modal-body p {
+  text-align: left;
+}
+.modal-body .modal-year {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
 }/*# sourceMappingURL=index.css.map */

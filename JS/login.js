@@ -17,6 +17,6 @@ function login() {
         window.location.href = 'index.html';
       }, 500);
     } else {
-      alert('Hatalı email veya şifre!');
+      alert('Falsche Email oder Passwort!');
     }
   }

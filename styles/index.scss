@@ -54,9 +54,31 @@
             width: 290px;
             height: 460px;
             object-fit: cover;
+            cursor: pointer;
             
         }
         
     }
 
+}
+.collapse{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-body{
+    img{
+        margin: 0 auto;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    p{
+        text-align: left;
+        
+    }
+    .modal-year{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10px;
+    }
 }

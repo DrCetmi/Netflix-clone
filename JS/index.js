@@ -85,10 +85,7 @@ async function searchMoviesData() {
                 movieImage.alt = `${movie.Title} Poster`;
 
                 movieImage.addEventListener('click', () => {
-                    const myModal = new bootstrap.Modal(document.getElementById("myModal"));
-                      myModal.show();
-                      
-                    movieImage.style.cursor = "pointer";
+                    movieImage.style.cursor = 'pointer';
                     displayMovieDetailsModal(movie.Title);
                 });
 
@@ -106,7 +103,6 @@ async function searchMoviesData() {
 
 async function displayMovieDetailsModal(title) {
     try {
-        // Film detaylarını fetch ile çek
         const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`;
         const response = await fetch(apiUrl);
 
@@ -118,34 +114,82 @@ async function displayMovieDetailsModal(title) {
         const movieDetails = await response.json();
         console.log(movieDetails);
 
+        const modalContainer = document.createElement('div');
+        modalContainer.className = 'modal';
+        modalContainer.tabIndex = '-1';
+        modalContainer.id = 'myModal';
+
+        const modalDialog = document.createElement('div');
+        modalDialog.className = 'modal-dialog modal-dialog-scrollable';
+
         const modalContent = document.createElement('div');
-        modalContent.innerHTML = `
-            <div class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">${movieDetails.Title}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Year: ${movieDetails.Year}</p>
-                            <p>Plot: ${movieDetails.Plot}</p>
-                            <!-- Diğer detayları ekleyebilirsiniz -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        modalContent.className = 'modal-content';
+
+        const modalHeader = document.createElement('div');
+        modalHeader.className = 'modal-header';
+
+        // Create modal title
+        const modalTitle = document.createElement('h5');
+        modalTitle.className = 'modal-title';
+        modalTitle.textContent = movieDetails.Title;
+
+        // Create close button
+        const closeButton = document.createElement('button');
+        closeButton.type = 'button';
+        closeButton.className = 'btn-close';
+        closeButton.setAttribute('data-bs-dismiss', 'modal');
+        closeButton.setAttribute('aria-label', 'Close');
+
+        modalHeader.appendChild(modalTitle);
+        modalHeader.appendChild(closeButton);
+
+        // Create modal body
+        const modalBody = document.createElement('div');
+        modalBody.className = 'modal-body';
+        modalBody.innerHTML= `
+        <div class="modal-year">
+        <p>Year: ${movieDetails.Year}<p/>
+        <p>Genre: ${movieDetails.Genre}<p/>
+        <p>IMDB: ${movieDetails.imdbRating}<p/>
+        </div>
+        <img src="${movieDetails.Poster}" alt="${movieDetails.title}"></img>
+        <p>${movieDetails.Plot}<p/>
+        <p>Actors: ${movieDetails.Actors}<p/>
+        <p>Country: ${movieDetails.Country}<p/>
+        <p>Language: ${movieDetails.Language}<p/>
+        <p>Runtime: ${movieDetails.Runtime}<p/>
         `;
 
-        document.body.appendChild(modalContent);
+        const modalFooter = document.createElement('div');
+        modalFooter.className = 'modal-footer';
+
+        const closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'btn btn-secondary';
+        closeBtn.setAttribute('data-bs-dismiss', 'modal');
+        closeBtn.textContent = 'Close';
+
+        const saveChangesBtn = document.createElement('button');
+        saveChangesBtn.type = 'button';
+        saveChangesBtn.className = 'btn btn-primary';
+        saveChangesBtn.textContent = 'Save changes';
+
+        modalFooter.appendChild(closeBtn);
+        modalFooter.appendChild(saveChangesBtn);
+        modalContent.appendChild(modalHeader);
+        modalContent.appendChild(modalBody);
+        modalContent.appendChild(modalFooter);
+        modalDialog.appendChild(modalContent);
+        modalContainer.appendChild(modalDialog);
+        document.body.appendChild(modalContainer);
+
+        const myModal = new bootstrap.Modal(modalContainer);
+        myModal.show();
     } catch (error) {
         console.error('Error in displayMovieDetailsModal:', error);
     }
 }
+
 
 function closeModal() {
     const modal = document.querySelector('.modal-content');
