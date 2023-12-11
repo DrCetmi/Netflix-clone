@@ -42,14 +42,13 @@
 
 #movies{
     display: flex;
-    overflow-x: auto; /* Yatay kaydırma için */
-    white-space: nowrap; /* Uzun satırları bir arada tutmak için */
+    overflow-x: auto; 
+    white-space: nowrap; 
     .movies-box{
         width: 310px;
         background-color: #000;
         height: 560px;
         padding: 10px;
-       
         img{
             width: 290px;
             height: 460px;
@@ -59,22 +58,18 @@
         }
         
     }
-
 }
 .collapse{
     display: flex;
     justify-content: space-between;
 }
-
 .modal-body{
     img{
-       
         width: 100%;
         padding-bottom: 10px;
     }
     p{
         text-align: left;
-        
     }
     .modal-year{
         display: flex;
@@ -82,16 +77,13 @@
         padding-left: 10px;
     }
 }
-
 .comments-section{
-    
     textarea, .btn{
         width: 90%;
         margin: 0 auto;
         display: block;
         margin: 10px;
     }
-    
 }
 .likes-dislikes-section{
     button{
@@ -105,7 +97,19 @@
 }
 
 .modal-footer{
-    
         margin: 10px;
-    
+}
+
+.comments-display{
+    margin: 15px;
+    padding: 10px;
+    div{
+        border-bottom: 1px solid #d2113c;
+        padding: 10px;
+        img{
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+        }
+    }
 }

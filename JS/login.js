@@ -8,11 +8,8 @@ function login() {
 
     if (email === validEmail && password === validPassword) {
         sessionStorage.setItem('isLoggedIn', true);
-    //   alert('Giriş başarılı!');
     console.log(sessionStorage.getItem('isLoggedIn'));
     
-
-
     setTimeout(() => {
         window.location.href = 'index.html';
       }, 500);

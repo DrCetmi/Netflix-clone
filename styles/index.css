@@ -1,4 +1,3 @@
-@charset "UTF-8";
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -48,8 +47,8 @@
 
 #movies {
   display: flex;
-  overflow-x: auto; /* Yatay kaydırma için */
-  white-space: nowrap; /* Uzun satırları bir arada tutmak için */
+  overflow-x: auto;
+  white-space: nowrap;
 }
 #movies .movies-box {
   width: 310px;
@@ -101,4 +100,18 @@
 
 .modal-footer {
   margin: 10px;
+}
+
+.comments-display {
+  margin: 15px;
+  padding: 10px;
+}
+.comments-display div {
+  border-bottom: 1px solid #d2113c;
+  padding: 10px;
+}
+.comments-display div img {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
 }/*# sourceMappingURL=index.css.map */
