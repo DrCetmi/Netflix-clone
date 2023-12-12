@@ -127,4 +127,35 @@
 .carousel-item {
   background: rgb(0, 0, 0);
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.3463760504) 0%, rgb(41, 39, 39) 46%, rgb(36, 31, 31) 63%, rgb(167, 165, 165) 100%);
+}
+
+footer {
+  background-color: rgba(13, 13, 13, 0.568627451);
+  width: 100%;
+  height: 300px;
+  color: #636262;
+  font-size: 20px;
+  padding: 30px 50px;
+}
+footer div p {
+  margin-left: 60px;
+}
+footer div p:hover {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: underline;
+}
+footer .bottom-menu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+footer .bottom-menu li {
+  list-style-type: none;
+  padding-bottom: 15px;
+}
+footer .bottom-menu li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff;
 }/*# sourceMappingURL=index.css.map */

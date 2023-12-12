@@ -121,3 +121,33 @@
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,0.34637605042016806) 0%, rgba(41,39,39,1) 46%, rgba(36,31,31,1) 63%, rgba(167,165,165,1) 100%);
 }
+footer{
+    background-color: #0d0d0d91;
+    width: 100%;
+    height: 300px;
+    color: #636262;
+    font-size: 20px;
+    padding: 30px 50px; 
+    div p{
+        margin-left: 60px;
+    }
+    div p:hover{
+        cursor: pointer;
+        color:#fff;
+        text-decoration: underline;
+    }
+    .bottom-menu{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        li{
+            list-style-type: none;
+            padding-bottom: 15px;
+        }
+        li:hover{
+            cursor: pointer;
+            text-decoration: underline;
+            color: #fff;
+        }
+    }
+}
