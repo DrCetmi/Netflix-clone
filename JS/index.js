@@ -1,5 +1,4 @@
 const apiKey = '2d4dd11';
-
 async function searchMovie() {
     try {
         const movieTitle = document.querySelector(".form-control").value;
@@ -28,9 +27,11 @@ async function searchMovie() {
                     </div>
                 `;
             });
-            topImg.innerHTML = "";
-            const moviesContainer = document.getElementById('movies');
-            moviesContainer.innerHTML = "";
+            
+            const iframeTop = document.getElementById("carouselExample");
+            iframeTop.innerHTML= "";
+            const moviesElements = document.getElementById("movies");
+            moviesElements.innerHTML = "";
         } else {
             console.error('Movies not found');
         }
@@ -38,16 +39,6 @@ async function searchMovie() {
         console.error('Error in searchMovies:', error);
     }
 }
-
-////////////////////////////////////////
-// const topImg = document.getElementById("top-image");
-// topImg.innerHTML = `
-// <h2>John Wick: Chapter 4 (2023)</h2>
-// <img src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg" class="img-fluid" alt="poster">
-// `;
-
-///////////////////////////////////////////
-
 async function searchMoviesData() {
     try {
         const movieIds = [
@@ -96,7 +87,6 @@ async function searchMoviesData() {
         console.error('Error in searchMoviesData:', error);
     }
 }
-
 async function displayMovieDetailsModal(title) {
     try {
         const itemTitle = title;

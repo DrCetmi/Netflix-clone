@@ -26,19 +26,6 @@
         }
     }
 }
-// #top-image{
-//     background: rgb(0,0,0);
-//     background: linear-gradient(90deg, rgba(0,0,0,0.34637605042016806) 0%, rgba(41,39,39,1) 46%, rgba(36,31,31,1) 63%, rgba(167,165,165,1) 100%);
-//     padding: 20px;
-//     img {
-//         object-fit: contain;
-//         height: 700px;
-//         width: auto;
-//         display: block;
-//         margin-left: auto;
-//         margin-right: 0;
-//     }
-// }
 
 #movies{
     margin: 20px 0;
@@ -128,19 +115,7 @@
     object-fit: cover;
 }
 }
-
-.carousel-item{
-    
+.carousel-item{  
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,0.34637605042016806) 0%, rgba(41,39,39,1) 46%, rgba(36,31,31,1) 63%, rgba(167,165,165,1) 100%);
-    padding: 20px;
-    img{
-        object-fit: contain;
-        height: 700px;
-        width: auto;
-        display: block;
-        margin-left: auto;
-        margin-right: 150px;
-        border-radius: 8px;
-    }
 }

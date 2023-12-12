@@ -1,102 +1,72 @@
-# Netflix-clone
+# Netflix-Film-Anwendung mit OMDB-API und Lokaler Authentifizierung
 
-# Netflix-Film-Anwendung mit OMDB-API
+## Projektübersicht
 
-Dieses Projekt zielt darauf ab, eine Netflix-Filmanwendung mit HTML, CSS (oder SCSS) und JavaScript zu erstellen. Es nutzt die [OMDB API](http://www.omdbapi.com/apikey.aspx), um Filmdaten abzurufen und enthält zusätzliche Funktionen wie Kommentare, Likes und Dislikes.
+Dieses umfangreiche Projekt einer Netflix-Filmanwendung integriert nicht nur die [OMDB API](http://www.omdbapi.com/apikey.aspx) für den Abruf von Filmdaten, sondern enthält auch eine lokale Authentifizierung für eine Login-Seite. Ziel ist es, Benutzern eine personalisierte Erfahrung zu bieten, indem sie sich anmelden können, um ihre bevorzugten Filme zu speichern und mit anderen Benutzern zu interagieren.
 
-## Einrichtung
+## Verwendete Technologien
 
-1. Besorge dir den [OMDB API Key](http://www.omdbapi.com/apikey.aspx): Melde dich auf der [OMDB](http://www.omdbapi.com/) Website an, um einen API-Schlüssel zu erhalten.
+- **HTML & CSS (SCSS):** Die Anwendung nutzt HTML und SCSS für das Layout und die Gestaltung der Benutzeroberfläche.
 
-2. Abrufen von Filmdaten: Verwende JavaScript, um Filmdaten von der [OMDB](http://www.omdbapi.com/) API abzurufen.
+- **JavaScript:** JavaScript wird verwendet, um Filmdaten von der OMDB API abzurufen, dynamische Modals zu erstellen und verschiedene Funktionen wie Kommentare, Likes, Dislikes sowie die lokale Authentifizierung zu implementieren.
 
-    * Verwende fetch() oder andere AJAX-Techniken, um Anfragen an die API zu stellen.
-    * Zeige die abgerufenen Filmdaten in deinem HTML an.
-    * Dynamische Erstellung von Modals: Implementiere JavaScript-Logik, um dynamisch Modals für jeden Film zu erstellen, wenn ein Benutzer darauf klickt. Du kannst eine Modal-Bibliothek wie Bootstrap's Modal verwenden oder deine eigene Modal-Struktur mit JavaScript-DOM-Manipulation erstellen.
+- **Fetch API:** Die Fetch API wird für AJAX-Anfragen an die OMDB API verwendet, um Filmdaten zu erhalten.
 
-3. Gestaltung & Layout:
+- **Bootstrap (Modal):** Bootstrap wird für die Modal-Komponenten verwendet, um Filmdetails anzuzeigen und die Benutzeroberfläche zu verbessern.
 
-    * Erstelle ein Layout, das Netflix ähnelt, mit HTML und CSS.
-    * Entwerfe Karten für Filmdetails wie Titel, Poster, Beschreibung, etc.
-    * Implementiere das Styling, um eine optisch ansprechende Benutzeroberfläche zu erstellen.
+- **Lokaler Speicher (Session Storage):** Die lokale Authentifizierung wird mithilfe des Session Storage umgesetzt, um Benutzerinformationen zwischen den Seiten zu speichern.
 
-4. Zusätzliche Funktionen implementieren:
+## Projektaufgaben
 
-    * Kommentare: Erlaube Benutzern, Kommentare zu Filmen hinzuzufügen.
-    * Likes & Dislikes: Implementiere Funktionen, um Filme zu Liken oder Disliken.
-    * Speicher Kommentare, Likes und Dislikes im lokalen Speicher des Browsers oder verwende eine JSON-Datei, um diese Daten zu speichern.
+1. **OMDB API Key erhalten:**
 
-5. Testen:
+   - Ein API-Schlüssel wurde von der [OMDB-Website](http://www.omdbapi.com/) bezogen, um den Zugriff auf Filmdaten zu ermöglichen.
 
-    * Teste Ihre Anwendung, um sicherzustellen, dass die Filmdaten korrekt abgerufen und angezeigt werden.
-    * Überprüfe, ob die zusätzlichen Funktionen (Kommentare, Likes, Dislikes) wie vorgesehen funktionieren.
+2. **Abrufen von Filmdaten:**
 
+   - Mit JavaScript wurden Anfragen an die OMDB API gestellt, um Filmdaten zu erhalten.
+   - Die Fetch API wurde verwendet, um Daten abzurufen und im HTML anzuzeigen.
 
+3. **Gestaltung & Layout:**
 
+   - HTML und SCSS wurden verwendet, um ein ansprechendes Layout zu erstellen, das dem von Netflix ähnelt.
+   - Karten für Filmdetails wurden entworfen und gestylt.
+
+4. **Zusätzliche Funktionen implementieren:**
+
+   - Kommentare: Benutzer können Kommentare zu Filmen hinzufügen.
+   - Likes & Dislikes: Funktionen wurden implementiert, um Filme zu Liken oder Disliken.
+   - Lokaler Speicher: Kommentare, Likes und Dislikes werden im lokalen Speicher des Browsers gespeichert.
+
+5. **Lokale Authentifizierung hinzufügen:**
+
+   - Erstellung einer Login-Seite.
+   - Verwendung des Session Storage, um Benutzerinformationen zu speichern.
+   - Sicherstellung, dass bestimmte Seiten nur für angemeldete Benutzer zugänglich sind.
+
+6. **Testen:**
+   - Überprüfung der korrekten Funktionsweise der Filmdatenabfrage und der zusätzlichen Features.
+   - Authentifizierungstests, um sicherzustellen, dass Benutzer korrekt angemeldet werden und auf geschützte Seiten zugreifen können.
 
 ## Ressourcen
 
-* [OMDB API-Dokumentation](http://www.omdbapi.com/)
+- [OMDB API-Dokumentation](http://www.omdbapi.com/)
+- [Mozilla Developer Network (MDN)](https://developer.mozilla.org/en-US/)
+- [Bootstrap-Themen](https://bootswatch.com/)
 
+## Fazit
 
-* [MDN](https://developer.mozilla.org/en-US/)
+Dieses Projekt bietet nicht nur eine umfassende Filmanwendung, sondern integriert auch eine lokale Authentifizierung für eine personalisierte Benutzererfahrung. Durch den Einsatz verschiedener Technologien und die Integration zusätzlicher Funktionen schafft die Anwendung eine ganzheitliche Plattform für Filmliebhaber.
 
-
-* [Bootstrap-Themen](https://bootswatch.com/)
-
-
-
-
-Denke daran, Modals zu verwenden, anstatt für jeden einzelnen Film eine HTML-Datei zu erstellen (das wäre unmöglich).
-
-
-Zum Beispiel:
-
-
-```js
-function displayMovieDetailsModal(movieDetails) {
-  // Erstellen des Modals
-  const modalContent = document.createElement('div');
-  modalContent.classList.add('modal-content');
-  modalContent.innerHTML = `
-    <h2>${movieDetails.Title}</h2>
-    <p>${movieDetails.Plot}</p>
-    <p>Regisseur: ${movieDetails.Director}</p>
-    <p>Jahr: ${movieDetails.Year}</p>
-  `;
-
-  // Erstellen der Schaltflächen "Gefällt mir" und "Gefällt mir nicht"
-  const likeButton = document.createElement('button');
-  likeButton.innerText = 'Gefällt mir';
-  likeButton.addEventListener('click', () => {
-    // 1. Logik zur Behandlung der "Gefällt mir"-Aktion und Speicherung in der JSON-Datei mit der Film-ID
-    // 2. Verwenden Sie möglicherweise die movieDetails.imdbID als eindeutigen Bezeichner
-    // 3. Speichern Sie die "Gefällt mir"-Aktion in einer JSON-Datei oder einem anderen Speichermechanismus
-  });
-
-  // Ähnliches für "Gefällt mir nicht" machen
-
-  // Erstellen des Kommentarbereichs, der aus JSON abgerufen wird
-
-  // Eingabefeld und Schaltfläche zum Hinzufügen neuer Kommentare
-  const commentInput = document.createElement('input');
-  commentInput.placeholder = 'Kommentar hinzufügen';
-  const commentButton = document.createElement('button');
-  commentButton.innerText = 'Kommentar hinzufügen';
-  commentButton.addEventListener('click', () => {
-    // Logik zum Speichern des neuen Kommentars
-  });
-  // Vorhandene Kommentare für diesen Film anhand seiner ID abrufen und hier rendern
-  const commentsSection = document.createElement('div');
-
-
-  // Erstellen des Modalcontainers
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
-  modal.appendChild(modalContent);
-
-  // Anhängen des Modals an den Body (muss nicht der Body sein)
-  document.body.appendChild(modal);
-}
-```
-glhf
+- Login Seite
+  ![Login](./assests/login.png)
+- Header
+  ![header](./assests/top.png)
+- Body
+  ![body](./assests/body.png)
+- Modal
+  ![modal](./assests/modal.png)
+- Meine Liste
+  ![list](./assests/mylist.png)
+- Suchseite
+  ![search](./assests/search.png)

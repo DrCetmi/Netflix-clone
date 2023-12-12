@@ -55,15 +55,6 @@
             <a class="nav-link" href="./index.html">Startseite</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Serien</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Filme</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Neu und Beliebt</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" id="meine-liste" href="./meineliste.html"
               >Meine Liste</a
             >
@@ -110,15 +101,12 @@
     </div>
 
     <script>
-      // localStorage'dan kaydedilen filmleri al
       const savedMovies = Object.keys(localStorage)
         .filter((key) => key.endsWith("_selectedMovie"))
         .map((key) => JSON.parse(localStorage.getItem(key)));
 
-      // Oluşturulan HTML elementleri için bir container
       const savedMoviesContainer = document.getElementById("savedMovies");
 
-      // Her bir kaydedilen film için bir HTML element oluştur
       savedMovies.forEach((movie) => {
         const movieElement = document.createElement("div");
         movieElement.className = "saved-movie-box m-2";
@@ -135,10 +123,8 @@
         savedMoviesContainer.appendChild(movieElement);
       });
 
-      // "Clear Saved Movies" butonuna tıklanınca localStorage'dan kaydedilen filmleri temizle
       $("#clearSavedMovies").on("click", function () {
         localStorage.clear();
-        // Sayfayı yenile, böylece kaydedilen filmleri gösteren HTML elementleri temizlenir
         location.reload();
       });
     </script>
