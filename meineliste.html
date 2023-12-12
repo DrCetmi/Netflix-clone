@@ -8,15 +8,20 @@
       href="./assests/Netflix-icon.png"
       type="image/x-icon"
     />
-    <title>Netflix Home Page</title>
+    <title>Netflix Meine Liste</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Bootstrap eklentisi -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
     />
-
-    <link rel="stylesheet" href="./styles/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background-color: #212529;
+      }
+    </style>
   </head>
   <body>
     <script>
@@ -97,57 +102,46 @@
         </ul>
       </div>
     </nav>
-
-    <div id="movieData"></div>
-    <div id="top-image"></div>
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
-            class="img-fluid"
-            alt="poster"
-            class="d-block w-100"
-            alt="..."
-          />
-        </div>
-        <div class="carousel-item">
-          <iframe
-            width="696"
-            height="392"
-            src="https://www.youtube.com/embed/pBk4NYhWNMM"
-            title="Barbie | Main Trailer"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExample"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExample"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+    <div class="container mt-5">
+      <div class="d-flex flex-wrap" id="savedMovies"></div>
+      <button class="btn btn-danger mt-3" id="clearSavedMovies">
+        Clear Saved Movies
       </button>
     </div>
-    <div id="movies"></div>
 
-    <script src="./JS/index.js"></script>
+    <script>
+      // localStorage'dan kaydedilen filmleri al
+      const savedMovies = Object.keys(localStorage)
+        .filter((key) => key.endsWith("_selectedMovie"))
+        .map((key) => JSON.parse(localStorage.getItem(key)));
+
+      // Oluşturulan HTML elementleri için bir container
+      const savedMoviesContainer = document.getElementById("savedMovies");
+
+      // Her bir kaydedilen film için bir HTML element oluştur
+      savedMovies.forEach((movie) => {
+        const movieElement = document.createElement("div");
+        movieElement.className = "saved-movie-box m-2";
+
+        const titleElement = document.createElement("h3");
+        titleElement.textContent = movie.title;
+
+        const posterElement = document.createElement("img");
+        posterElement.src = movie.poster;
+        posterElement.alt = `${movie.title} Poster`;
+
+        movieElement.appendChild(titleElement);
+        movieElement.appendChild(posterElement);
+        savedMoviesContainer.appendChild(movieElement);
+      });
+
+      // "Clear Saved Movies" butonuna tıklanınca localStorage'dan kaydedilen filmleri temizle
+      $("#clearSavedMovies").on("click", function () {
+        localStorage.clear();
+        // Sayfayı yenile, böylece kaydedilen filmleri gösteren HTML elementleri temizlenir
+        location.reload();
+      });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

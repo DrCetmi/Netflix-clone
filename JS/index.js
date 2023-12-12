@@ -28,6 +28,9 @@ async function searchMovie() {
                     </div>
                 `;
             });
+            topImg.innerHTML = "";
+            const moviesContainer = document.getElementById('movies');
+            moviesContainer.innerHTML = "";
         } else {
             console.error('Movies not found');
         }
@@ -37,19 +40,20 @@ async function searchMovie() {
 }
 
 ////////////////////////////////////////
-const topImg = document.getElementById("top-image");
-topImg.innerHTML = `
-<h2>John Wick: Chapter 4 (2023)</h2>
-<img src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg" class="img-fluid" alt="poster">
-`;
+// const topImg = document.getElementById("top-image");
+// topImg.innerHTML = `
+// <h2>John Wick: Chapter 4 (2023)</h2>
+// <img src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg" class="img-fluid" alt="poster">
+// `;
 
 ///////////////////////////////////////////
 
 async function searchMoviesData() {
     try {
         const movieIds = [
-            "tt2911666", "tt5180504", "tt2442560", "tt2085059", "tt4574334",
-            "tt6763664", "tt5290382", "tt7493974", "tt4052886", "tt8005374"
+            "tt2911666", "tt5180504", "tt2442560", "tt2085059", "tt4574334","tt6763664", "tt5290382", "tt7493974", "tt4052886", "tt8005374", "tt6806448", "tt5246700", "tt8883486", "tt12361974",
+            "tt4179452", "tt10919420","tt26340796","tt3371366","tt0903747","tt2707408","tt2872732","tt0803096", "tt5034838", "tt5519340","tt1375666","tt14176542","tt5090568","tt0480249",
+            "tt0133093","tt1981115","tt0401855","tt7097896","tt8936646","tt1673434","tt12263384","tt7991608","tt0816711","tt10648342","tt1972591","tt1335975"
         ];
 
         const movieDataPromises = movieIds.map(async (movieId) => {
@@ -83,6 +87,7 @@ async function searchMoviesData() {
 
                 movieBox.appendChild(movieImage);
                 moviesContainer.appendChild(movieBox);
+            
             } else {
                 console.error(`Movie with ID ${movie.imdbID} not found`);
             }
@@ -179,6 +184,7 @@ async function displayMovieDetailsModal(title) {
 
     let likes = parseInt(localStorage.getItem(`${itemTitle}_likes`)) || 0;
     let dislikes = parseInt(localStorage.getItem(`${itemTitle}_dislikes`)) || 0;
+    let posterSave = parseInt(localStorage.getItem(`${itemTitle}_poster`)) || 0;
 
     const likesDisplay = document.createElement('span');
     likesDisplay.textContent = `${likes} likes`;
@@ -228,8 +234,15 @@ async function displayMovieDetailsModal(title) {
     const saveChangesBtn = document.createElement('button');
     saveChangesBtn.type = 'button';
     saveChangesBtn.className = 'btn btn-primary';
-    saveChangesBtn.textContent = 'Save changes';
-
+    saveChangesBtn.textContent = 'Save to the list';
+    saveChangesBtn.addEventListener("click", () => {
+        saveChangesBtn.className = "btn btn-success";
+        const selectedMovie = {
+            poster: movieDetails.Poster,
+        };
+        localStorage.setItem(`${selectedMovie.poster}_selectedMovie`, JSON.stringify(selectedMovie));
+    });
+    
     likesDislikesSection.appendChild(likeBtn);
     likesDislikesSection.appendChild(dislikeBtn);
     likesDislikesSection.appendChild(likesDisplay);
