@@ -63,6 +63,7 @@ async function searchMoviesData() {
 
         const moviesContainer = document.getElementById('movies');
         moviesContainer.innerHTML = '';
+        moviesContainer.style.background = "#212529";
         moviesData.forEach(movie => {
             if (movie && movie.Response === 'True') {
                 const movieBox = document.createElement('div');

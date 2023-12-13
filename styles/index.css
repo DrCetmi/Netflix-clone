@@ -61,6 +61,11 @@ body {
   transition: transform 0.3s ease;
 }
 
+.modal-content {
+  background-color: #212529;
+  color: white;
+}
+
 .collapse {
   display: flex;
   justify-content: space-between;
