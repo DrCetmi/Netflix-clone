@@ -32,6 +32,8 @@ async function searchMovie() {
             iframeTop.innerHTML= "";
             const moviesElements = document.getElementById("movies");
             moviesElements.innerHTML = "";
+            const savedMovies = document.getElementById("saved");
+            savedMovies.innerHTML = "";
         } else {
             console.error('Movies not found');
         }
@@ -63,7 +65,6 @@ async function searchMoviesData() {
 
         const moviesContainer = document.getElementById('movies');
         moviesContainer.innerHTML = '';
-        moviesContainer.style.background = "#212529";
         moviesData.forEach(movie => {
             if (movie && movie.Response === 'True') {
                 const movieBox = document.createElement('div');
@@ -262,3 +263,5 @@ async function displayMovieDetailsModal(title) {
     }
 }
 searchMoviesData();
+
+

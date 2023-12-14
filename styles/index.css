@@ -22,6 +22,7 @@ body {
   background-color: #000;
   height: 560px;
   padding: 10px;
+  color: #fff;
 }
 #movieData .movies-box img {
   width: 290px;
