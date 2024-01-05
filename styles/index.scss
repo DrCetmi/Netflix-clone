@@ -87,14 +87,22 @@ color: white;
     }
 }
 .likes-dislikes-section{
+    border-top: 1px solid #fff;
+    width: 95%;
+    margin: 0 auto;
     padding-top: 20px;
+
     button{
        width: 43%;
        margin: 0 10px;
     }
     span{
-        display: block;
+        display: inline-block;
         margin-left: 10px;
+        margin: 0 auto;
+        padding-left: 70px;
+        width: 50%;
+       
     }
 }
 

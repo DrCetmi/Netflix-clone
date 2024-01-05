@@ -127,16 +127,16 @@ async function displayMovieDetailsModal(title) {
         modalBody.className = 'modal-body';
         modalBody.innerHTML = `
         <div class="modal-year">
-            <p>Year: ${movieDetails.Year}<p/>
-            <p>Genre: ${movieDetails.Genre}<p/>
+            <p>YEAR: ${movieDetails.Year}<p/>
+            <p>GENRE: ${movieDetails.Genre}<p/>
             <p>IMDB: ${movieDetails.imdbRating}<p/>
         </div>
         <img src="${movieDetails.Poster}" alt="${movieDetails.title}"></img>
         <p>${movieDetails.Plot}<p/>
-        <p>Actors: ${movieDetails.Actors}<p/>
-        <p>Country: ${movieDetails.Country}<p/>
-        <p>Language: ${movieDetails.Language}<p/>
-        <p>Runtime: ${movieDetails.Runtime}<p/>
+        <p>ACTORS: ${movieDetails.Actors}<p/>
+        <p>COUNTRY: ${movieDetails.Country}<p/>
+        <p>LANGUAGE: ${movieDetails.Language}<p/>
+        <p>RUNTIME: ${movieDetails.Runtime}<p/>
         `;
 
     const commentsSection = document.createElement('div');
